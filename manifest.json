@@ -1,1 +1,8 @@
-{"title": "Online List", "author": "[url=https://github.com/tormater-yak]tormater-yak[/url]", "readme": "Add an online users list to your footer."}
+{
+    "title": "Online List", 
+    "author": "[url=https://github.com/tormater-yak]tormater-yak[/url]", 
+    "readme": "Add an online users list to your footer.",
+    "settings": [
+        {"id":"maxUsers", "name":"Maximum users to display", "type":"int", "default":"16"}
+    ]
+}
