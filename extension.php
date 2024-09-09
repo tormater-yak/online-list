@@ -12,15 +12,16 @@ $lang = array_merge($ol_CustomLang, $lang);
 // Define the functions
 
 function OnlineList_Display() {
-    global $db, $lang, $config;
+    global $db, $lang, $config, $extension_config;
 
     $users = array();
     $extra_users = 0;
     $result = $db->query("SELECT * FROM users");
+    $OnlineList = getExtensionName(__DIR__);
     
     while ($row = $result->fetch_assoc()) {
         if (time() - $row["lastactive"] <= $config["onlinePeriod"]) {
-            if (sizeof($users) > 16) {
+            if (sizeof($users) > $extension_config[$OnlineList]["maxUsers"]) {
                 $extra_users++;
                 continue;
             }
