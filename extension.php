@@ -3,6 +3,7 @@ if (!defined("INDEXED")) exit;
 
 $ol_CustomLang = array (
     "onlinelist.UsersOnline" => "<b>Users online:</b> %s",
+    "onlinelist.NoUsersOnline" => "There are no users online",
     "onlinelist.ExtraUsers" => "and %d more",
 );
 $lang = array_merge($ol_CustomLang, $lang);
@@ -29,6 +30,9 @@ function OnlineList_Display() {
     
     if ($extra_users != 0) {
         array_push($users,sprintf($lang["onlinelist.ExtraUsers"],$extra_users));
+    }
+    if (sizeof($users) == 0) {
+        array_push($users,$lang["onlinelist.NoUsersOnline"]);
     }
     
     echo "<br>" . sprintf($lang["onlinelist.UsersOnline"], implode(", ", $users)) . "<br>";
