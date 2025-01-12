@@ -25,7 +25,7 @@ function OnlineList_Display() {
                 $extra_users++;
                 continue;
             }
-            array_push($users,'<a id="'.$row["role"].'" href="'.genURL("user/".$row["userid"]).'">'.htmlspecialchars($row["username"]).'</a>');
+            array_push($users,'<a class="'.$row["role"].'" href="'.genURL("user/".$row["userid"]).'">'.htmlspecialchars($row["username"]).'</a>');
         }
     }
     
